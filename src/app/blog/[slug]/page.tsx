@@ -1,20 +1,24 @@
-import { notFound } from 'next/navigation'
-import { CustomMDX } from '@/components/mdx'
-import { formatDate, getBlogPosts } from '@/app/blog/utils'
-import { baseUrl } from '@/app/sitemap'
+import { notFound } from 'next/navigation';
+import { CustomMDX } from '@/components/mdx';
+import { formatDate, getBlogPosts } from '@/app/blog/utils';
+import { baseUrl } from '@/app/sitemap';
+
+type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts()
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+export async function generateMetadata(props: { params: Params }) {
+  const params = await props.params;
+  const slug = params.slug;
+  const post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {
-    return null
+    return null;
   }
 
   const {
@@ -22,10 +26,10 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata
+  } = post.metadata;
   const ogImage = image
     ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -48,14 +52,16 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function Blog(props: { params: Params }) {
+  const params = await props.params;
+  const slug = params.slug;
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -76,7 +82,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
-              '@type': 'Person',
+              '@type': 'Rizky Rafi Azhara',
               name: 'My Portfolio',
             },
           }),
@@ -94,5 +100,5 @@ export default function Blog({ params }: { params: { slug: string } }) {
         <CustomMDX source={post.content} />
       </article>
     </section>
-  )
+  );
 }
