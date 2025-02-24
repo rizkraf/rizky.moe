@@ -1,21 +1,21 @@
-import { BlogPosts } from '@/components/posts'
+import Experience from '@/components/experience';
+import Projects from '@/components/projects';
 
 export default function Page() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+    <section className='mb-16'>
+      <h1 className="mb-8 text-2xl font-bold tracking-tighter">
+        Rizky Rafi Azhara
       </h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`I'm a software engineer who loves making things that hopefully help people. Currently working at Roketin and building Permaloka as main project in my free time.`}
       </p>
       <div className="my-8">
-        <BlogPosts />
+        <Experience />
+      </div>
+      <div>
+        <Projects />
       </div>
     </section>
-  )
+  );
 }
