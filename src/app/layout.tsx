@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     siteName: 'My Portfolio',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: `${baseUrl}/og?title=Rizky%20Rafi%20Azhara`,
+        width: 1200,
+        height: 630,
+        alt: 'Rizky Rafi Azhara',
+      },
+    ],
   },
   robots: {
     index: true,
