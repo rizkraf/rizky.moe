@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Permaloka from "../../public/permaloka.png"
 
 interface Project {
   title: string;
@@ -13,7 +14,7 @@ const projects: Project[] = [
     title: 'Permaloka',
     description: 'Indonesian Database Games platform',
     link: 'https://www.permaloka.id',
-    image: 'https://placehold.co/600x400.png',
+    image: Permaloka.src,
     techStack: [
       'Next.js',
       'tRPC',
