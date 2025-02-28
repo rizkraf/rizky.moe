@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rizky.moe Portfolio Website
 
-## Getting Started
+This repository contains the source code for my personal portfolio website. The website showcases my projects, skills, and experiences.
 
-First, run the development server:
+## Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js 15**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS v4**: A utility-first CSS framework for styling.
+- **MDX**: A format that lets you seamlessly write JSX in your Markdown documents.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To get a local copy up and running, follow these simple steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/rizkraf/rizky.moe.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd rizky.moe
+    ```
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+4. Start the development server:
+    ```sh
+    npm run dev
+    ```
 
-## Learn More
+Your local server will be running at `http://localhost:3000`.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to explore the code and use it as a reference for your own personal website. If you wish to contribute, you can fork the repository and create a pull request with your changes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are welcome! If you have any suggestions or improvements, please fork the repository and create a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Rizky Rafi Azhara - [azhararizkyrafi@gmail.com](mailto:azhararizkyrafi@gmail.com)
+
+Project Link: [https://github.com/rizkraf/rizky.moe](https://github.com/rizkraf/rizky.moe)
