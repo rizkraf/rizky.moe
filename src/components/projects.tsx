@@ -46,6 +46,7 @@ export default function Projects() {
               alt={project.title}
               width={200}
               height={200}
+              priority
             />
             <div className="p-3">
               <h3 className="text-xl font-semibold">{project.title}</h3>
