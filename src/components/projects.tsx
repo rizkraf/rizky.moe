@@ -19,10 +19,8 @@ const projects: Project[] = [
       'Next.js',
       'tRPC',
       'Prisma',
-      'PostgreSQL',
+      'Supabase',
       'Tailwind CSS',
-      'Docker',
-      'Coolify'
     ],
   },
   // Add more projects as needed
