@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { motion } from 'motion/react';
+import { fadeUp, slideInLeft } from '@/lib/animation';
+import { AnimatedText } from './animated-text';
 
 interface StatusState {
   loading: boolean;
@@ -69,27 +72,38 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="lg:w-2/3">
-      <h2 className="text-4xl font-black mb-8">Send Me a Message</h2>
+    <motion.div variants={slideInLeft} className="lg:w-2/3">
+      <AnimatedText className="text-4xl font-black mb-8">
+        Send Me a Message
+      </AnimatedText>
 
-      <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0)]">
+      <motion.div
+        variants={fadeUp}
+        className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0)]"
+      >
         {status.success ? (
-          <div className="p-4 bg-green-100 border-2 border-green-500 mb-6">
+          <motion.div
+            variants={fadeUp}
+            className="p-4 bg-green-100 border-2 border-green-500 mb-6"
+          >
             <p className="text-green-800 font-bold">
               Message sent successfully! I&apos;ll get back to you soon.
             </p>
-          </div>
+          </motion.div>
         ) : null}
 
         {status.error ? (
-          <div className="p-4 bg-red-100 border-2 border-red-500 mb-6">
+          <motion.div
+            variants={fadeUp}
+            className="p-4 bg-red-100 border-2 border-red-500 mb-6"
+          >
             <p className="text-red-800 font-bold">{status.error}</p>
-          </div>
+          </motion.div>
         ) : null}
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
+            <motion.div variants={fadeUp} className="space-y-2">
               <Label htmlFor="name" className="text-lg font-bold">
                 Name
               </Label>
@@ -101,8 +115,8 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
               />
-            </div>
-            <div className="space-y-2">
+            </motion.div>
+            <motion.div variants={fadeUp} className="space-y-2">
               <Label htmlFor="email" className="text-lg font-bold">
                 Email
               </Label>
@@ -115,10 +129,10 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
               />
-            </div>
+            </motion.div>
           </div>
 
-          <div className="space-y-2">
+          <motion.div variants={fadeUp} className="space-y-2">
             <Label htmlFor="subject" className="text-lg font-bold">
               Subject
             </Label>
@@ -130,9 +144,9 @@ export default function ContactForm() {
               onChange={handleChange}
               required
             />
-          </div>
+          </motion.div>
 
-          <div className="space-y-2">
+          <motion.div variants={fadeUp} className="space-y-2">
             <Label htmlFor="message" className="text-lg font-bold">
               Message
             </Label>
@@ -145,17 +159,23 @@ export default function ContactForm() {
               onChange={handleChange}
               required
             />
-          </div>
+          </motion.div>
 
-          <Button
-            type="submit"
-            className="bg-black cursor-pointer text-white border-4 border-black hover:bg-white hover:text-black text-lg px-8 py-4 h-auto rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0)] transition-all w-full md:w-auto"
-            disabled={status.loading}
+          <motion.div
+            variants={fadeUp}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
-            {status.loading ? 'Sending...' : 'Send Message'}
-          </Button>
+            <Button
+              type="submit"
+              className="bg-black cursor-pointer text-white border-4 border-black hover:bg-white hover:text-black text-lg px-8 py-4 h-auto rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0)] transition-all w-full md:w-auto"
+              disabled={status.loading}
+            >
+              {status.loading ? 'Sending...' : 'Send Message'}
+            </Button>
+          </motion.div>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
