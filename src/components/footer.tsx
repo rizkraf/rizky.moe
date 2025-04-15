@@ -29,37 +29,49 @@ export function Footer() {
                 className="bg-white text-black p-2 rounded-none hover:bg-yellow-400 transition-colors"
                 whileHover={{ scale: 1.2, rotate: 10 }}
               >
-                <Link href="#">
+                <a
+                  href="https://x.com/rizkraf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <IconBrandX className="h-5 w-5" />
                   <span className="sr-only">X</span>
-                </Link>
+                </a>
               </motion.div>
               <motion.div
                 className="bg-white text-black p-2 rounded-none hover:bg-yellow-400 transition-colors"
                 whileHover={{ scale: 1.2, rotate: -10 }}
               >
-                <Link href="#">
+                <a
+                  href="https://instagram.com/rizkraf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <IconBrandInstagram className="h-5 w-5" />
                   <span className="sr-only">Instagram</span>
-                </Link>
+                </a>
               </motion.div>
               <motion.div
                 className="bg-white text-black p-2 rounded-none hover:bg-yellow-400 transition-colors"
                 whileHover={{ scale: 1.2, rotate: 10 }}
               >
-                <Link href="#">
+                <a href="https://github.com/rizkraf">
                   <IconBrandGithub className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
-                </Link>
+                </a>
               </motion.div>
               <motion.div
                 className="bg-white text-black p-2 rounded-none hover:bg-yellow-400 transition-colors"
                 whileHover={{ scale: 1.2, rotate: -10 }}
               >
-                <Link href="#">
+                <a
+                  href="https://linkedin.com/in/rizkraf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <IconBrandLinkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </div>
