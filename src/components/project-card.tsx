@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { popAnimation } from '@/lib/animation';
 
 interface ProjectCardProps {
   title: string;
@@ -20,7 +21,13 @@ export function ProjectCard({
   color,
 }: ProjectCardProps) {
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      whileHover="hover"
+      whileTap="tap"
+      viewport={{ once: true }}
+      variants={popAnimation}
       className={`group border-4 border-black ${color} overflow-hidden relative shadow-[8px_8px_0px_0px_rgba(0,0,0)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-300`}
     >
       <div className="relative h-48 overflow-hidden border-b-4 border-black">
@@ -34,23 +41,47 @@ export function ProjectCard({
       <div className="p-4">
         <div className="flex flex-wrap gap-2 mb-3">
           {tags.map((tag, index) => (
-            <span
+            <motion.span
               key={index}
               className="bg-white text-black text-xs font-bold px-2 py-1 border-2 border-black"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * index }}
             >
               {tag}
-            </span>
+            </motion.span>
           ))}
         </div>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-sm mb-4">{description}</p>
-        <Link
-          href={link}
-          className="inline-flex items-center font-bold hover:underline"
+        <motion.h3
+          className="text-xl font-bold mb-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          View Project <ArrowUpRight className="ml-1 h-4 w-4" />
-        </Link>
+          {title}
+        </motion.h3>
+        <motion.p
+          className="text-sm mb-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          {description}
+        </motion.p>
+        <motion.div
+          whileHover={{ x: 5 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+        >
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center font-bold hover:underline"
+          >
+            View Project <ArrowUpRight className="ml-1 h-4 w-4" />
+          </a>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
