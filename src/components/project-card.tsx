@@ -35,6 +35,9 @@ export function ProjectCard({
           src={image || '/placeholder.svg'}
           alt={title}
           fill
+          quality={90}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
