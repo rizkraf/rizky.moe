@@ -10,6 +10,7 @@ export const projects = [
     tags: ['React', 'Tailwind CSS', 'Javascript'],
     link: 'https://noter.rizky.moe',
     color: 'bg-blue-300',
+    githubLink: 'https://github.com/rizkraf/noter'
   },
   {
     title: 'Quran Web',
@@ -19,5 +20,6 @@ export const projects = [
     tags: ['Vue.js', 'Tailwind CSS', 'Javascript'],
     link: 'https://quran.rizky.moe',
     color: 'bg-green-300',
+    githubLink: 'https://github.com/rizkraf/quran-web'
   },
 ];

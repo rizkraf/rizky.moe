@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { popAnimation } from '@/lib/animation';
+import { IconBrandGithub } from '@tabler/icons-react';
 
 interface ProjectCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ProjectCardProps {
   image: string;
   tags: string[];
   link: string;
+  githubLink?: string; // Added optional GitHub link
   color: string;
 }
 
@@ -18,6 +20,7 @@ export function ProjectCard({
   image,
   tags,
   link,
+  githubLink,
   color,
 }: ProjectCardProps) {
   return (
@@ -71,19 +74,36 @@ export function ProjectCard({
         >
           {description}
         </motion.p>
-        <motion.div
-          whileHover={{ x: 5 }}
-          transition={{ type: 'spring', stiffness: 400 }}
-        >
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center font-bold hover:underline"
+        <div className="flex flex-wrap gap-4">
+          <motion.div
+            whileHover={{ x: 5 }}
+            transition={{ type: 'spring', stiffness: 400 }}
           >
-            View Project <ArrowUpRight className="ml-1 h-4 w-4" />
-          </a>
-        </motion.div>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center font-bold hover:underline"
+            >
+              View Project <ArrowUpRight className="ml-1 h-4 w-4" />
+            </a>
+          </motion.div>
+          {githubLink && (
+            <motion.div
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400 }}
+            >
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-bold hover:underline"
+              >
+                GitHub <IconBrandGithub className="ml-1 h-4 w-4" />
+              </a>
+            </motion.div>
+          )}
+        </div>
       </div>
     </motion.div>
   );

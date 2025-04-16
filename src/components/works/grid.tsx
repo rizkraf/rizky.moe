@@ -20,6 +20,7 @@ export default function WorksGrid() {
                 tags={project.tags}
                 link={project.link}
                 color={project.color}
+                githubLink={project.githubLink}
               />
             </motion.div>
           ))}
